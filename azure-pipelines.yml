@@ -85,7 +85,7 @@ stages:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-  - script: |
+    - script: |
     pip install selenium
     pip install pytest
     pytest tests/functional_tests/ --webAppUrl=https://$(webAppName).azurewebsites.net --junitxml=$(System.DefaultWorkingDirectory)/TestResults/test-results-functional.xml
